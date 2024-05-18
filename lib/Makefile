@@ -4,6 +4,7 @@ LIBFILE := lib$(LIBNAME).a
 
 # Defines the inputs to the library
 SFILES := \
+	exit.S \
 	putchar.S putstr.S
 OFILES := $(SFILES:.S=.o)
 

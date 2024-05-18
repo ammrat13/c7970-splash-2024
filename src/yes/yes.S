@@ -2,7 +2,7 @@
 
     // Place the string we want to print in a separate section. We will load the
     // address of this string into a register, then print it.
-    .section ".rodata", "a"
+    .section ".rodata.yes.str", "a"
 .Lstr:
     .string "y\n"
 
