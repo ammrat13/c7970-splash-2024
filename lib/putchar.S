@@ -21,7 +21,7 @@ putchar:
     // The file descriptor is 1 (stdout)
     mov x0, #1
     // The buffer is the address of the character to print, which we stored on
-    // the top of the stack
+    // the top of the stack. Also conveniently, it's in little-endian order.
     mov x1, sp
     // The buffer size is 1
     mov x2, #1

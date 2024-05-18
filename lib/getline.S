@@ -16,21 +16,24 @@
     .type getline, %function
 getline:
 
-    // Save x0 and x1 since we'll be using them
-    stp x0, x1, [sp, #-16]!
+    // Save x0 and x1 since we'll be using them. Also save the link register
+    // since we call functions.
+    sub sp, sp, #32
+    str lr, [sp, #8]
+    stp x0, x1, [sp, #16]
     // Have x1 hold the next address to write
     mov x1, x0
 
     // Continuously read characters from the input. Remember, the return value
     // is in x0.
-.Lloop:
+.Lloop_body:
     bl getchar
     // If it's a newline, break
-    cmp x0, #'\n'
+    cmp w0, #'\n'
     b.eq .Lloop_done
     // Otherwise, write it into the buffer
     strb w0, [x1], #1
-    b .Lloop
+    b .Lloop_body
 
 .Lloop_done:
 
@@ -38,5 +41,7 @@ getline:
     strb wzr, [x1]
 
     // Restore and return
-    ldp x0, x1, [sp], #16
+    ldr lr, [sp, #8]
+    ldp x0, x1, [sp, #16]
+    add sp, sp, #32
     ret

@@ -1,13 +1,13 @@
 // Write a program that puts 50 into a register, and prints whether it is zero.
 
     // The task says to load the value 50 from memory, so we'll put it here.
-    .section ".rodata.memdemo.val", "a"
+    .section ".rodata", "a"
     .align 3
 .Lval:
     .dword 50
 
     // We also need strings for whether 50 is or is not zero
-    .section ".rodata.memdemo.strs", "a"
+    .section ".rodata", "a"
 .Lstr_z:
     .string "Math is broken\n"
 .Lstr_nz:
