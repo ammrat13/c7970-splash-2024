@@ -12,6 +12,7 @@ CUR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # Defines the toolchain
 CC := gcc
+ASFLAGS := -g
 LDFLAGS := -nostdlib -L$(CUR)/../lib/
 LFLAGS := -lsplash
 
@@ -27,7 +28,7 @@ $(PROGFILE): $(OFILES) lib-all
 	$(CC) $(LDFLAGS) -o $@ $(OFILES) $(LFLAGS)
 
 %.o: %.S
-	$(CC) -c -o $@ $<
+	$(CC) $(ASFLAGS) -c -o $@ $<
 
 .PHONY: lib-all
 lib-all:

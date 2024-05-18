@@ -3,7 +3,7 @@
 // It takes the character to print in x0, and it leaves all registers unchanged.
 // Use it like this:
 // ```
-//      mov x0, 'A'
+//      mov x0, #'A'
 //      bl putchar
 // ```
 

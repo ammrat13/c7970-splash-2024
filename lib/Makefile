@@ -5,12 +5,13 @@ LIBFILE := lib$(LIBNAME).a
 # Defines the inputs to the library
 SFILES := \
 	exit.S \
-	putchar.S putstr.S
+	putchar.S putstr.S putnum.S
 OFILES := $(SFILES:.S=.o)
 
-# Defines the toolchain
+# Defines the toolchain and flags
 CC := gcc
 AR := ar
+ASFLAGS := -g
 
 .PHONY: all
 all: $(LIBFILE)
@@ -23,4 +24,4 @@ $(LIBFILE): $(OFILES)
 	$(AR) rcs $@ $^
 
 %.o: %.S
-	$(CC) -c -o $@ $<
+	$(CC) $(ASFLAGS) -c -o $@ $<
