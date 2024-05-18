@@ -28,13 +28,13 @@ putnum:
     cbnz x0, .Lloop_start
     mov x8, #'0'
     strb w8, [x1, #-1]!
-    b .Lbufdone
+    b .Lloop_done
 
     // Keep iterating until the number is zero
 .Lloop_start:
     mov x8, #10
 .Lloop_body:
-    cbz x0, .Lbufdone
+    cbz x0, .Lloop_done
     // Divide the number by 10, and get the remainder
     mov x2, x0
     udiv x0, x0, x8
@@ -46,7 +46,7 @@ putnum:
     b .Lloop_body
 
     // At this point, the buffer has been populated
-.Lbufdone:
+.Lloop_done:
 
     // The syscall number is 64 (write)
     mov x8, #64
