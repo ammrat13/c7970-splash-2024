@@ -3,7 +3,7 @@
 #   - PROGNAME: the name of the program
 #   - SFILES: the assembly source files
 
-# Derive the set of object files from the source files
+PROGFILE := $(PROGNAME).elf
 OFILES := $(SFILES:.S=.o)
 
 # Get the directory of this script
@@ -16,14 +16,14 @@ LDFLAGS := -nostdlib -L$(CUR)/../lib/
 LFLAGS := -lsplash
 
 .PHONY: all
-all: $(PROGNAME)
+all: $(PROGFILE)
 	echo $(MAKEFILE_LIST)
 
 .PHONY: clean
 clean: lib-clean
-	rm -f $(PROGNAME) $(OFILES)
+	rm -f $(PROGFILE) $(OFILES)
 
-$(PROGNAME): $(OFILES) lib-all
+$(PROGFILE): $(OFILES) lib-all
 	$(CC) $(LDFLAGS) -o $@ $(OFILES) $(LFLAGS)
 
 %.o: %.S
