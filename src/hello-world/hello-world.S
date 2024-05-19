@@ -1,3 +1,5 @@
+// Hello World: No explanation needed.
+
     // Put the string somewhere
     .section ".rodata", "a"
 .Lstr:

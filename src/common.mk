@@ -1,7 +1,7 @@
 # Common Makefile for all the programs. It expects the following variables to be
 # defined:
-#   - PROGNAME: the name of the program
-#   - SFILES: the assembly source files
+#   * PROGNAME: the name of the program
+#   * SFILES: the assembly source files
 
 PROGFILE := $(PROGNAME).elf
 OFILES := $(SFILES:.S=.o)

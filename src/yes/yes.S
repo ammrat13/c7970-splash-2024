@@ -1,4 +1,4 @@
-// Write a program that prints "y" forever.
+// Yes: Write a program that prints "y" forever.
 
     // Place the string we want to print in a separate section. We will load the
     // address of this string into a register, then print it.
