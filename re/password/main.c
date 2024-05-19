@@ -6,7 +6,7 @@ bool check_password(const char* password);
 
 int main(int argc, char** argv) {
 
-  // The password to check should be agrv[1]
+  // The password to check should be argv[1]
   if (argc != 2) {
     printf("Usage: %s PASSWORD\n", argv[0]);
     return 2;
